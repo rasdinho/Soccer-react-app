@@ -75,7 +75,35 @@ class App extends React.Component{
       event.target.reset()
     }
 
-//============================================================================================
+//==================================================================Delete==========================
+
+    handleDelete = (playerObj) =>{
+      console.log("player", playerObj)
+
+      const newArr = this.state.allPlayers.filter(player => player.id !== playerObj.id)
+      const id = playerObj.id
+
+      fetch(`http://localhost:3000/players/${id}`, {
+        method: 'DELETE',
+        headers: {"Content-Type":"application/json",
+        'Accept': 'application/json'
+      }
+
+      })
+      this.setState({
+        allPlayers: newArr,
+        searchPlayer: newArr
+      })
+
+      // .then( this.setState({
+      //   allPlayers: newArr
+      // })
+      //   )
+    }
+
+// ========================================== == ========================================
+
+
 
   render(){
     //console.log("render")
@@ -109,9 +137,9 @@ class App extends React.Component{
         renders the first one that matches the current URL. */}
         <Switch>
 
-          <Route exact path="/teams" render={() => <AllContainer/>}/>
+          <Route exact path="/teams" render={() => <AllContainer handleDelete={this.handleDelete} />}/>
       
-          <Route exact path="/players" render={() => <PlayersContainer playersArr = {this.state.searchPlayer} input={this.state.searchInput} onSearch={this.onSearch}  createPlayer={this.createPlayer}/>}/>
+          <Route exact path="/players" render={() => <PlayersContainer playersArr = {this.state.searchPlayer} input={this.state.searchInput} onSearch={this.onSearch}  createPlayer={this.createPlayer}  handleDelete={this.handleDelete}/>}/>
         
           <Route exact path="/home" component={HomeContainer}/>
         

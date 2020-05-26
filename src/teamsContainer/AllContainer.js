@@ -65,7 +65,7 @@ class AllContainer extends React.Component{
                 <Teams teamsArr={this.state.allTeams} handleClickTeam={this.handleClickTeam}/>
 
                 {/* this is the array u updated at the handle method so u can pass it to players and map there */}
-                <Players playersArr ={this.state.clickedTeam} featuredPlayer={this.featuredPlayer}/>  
+                <Players playersArr ={this.state.clickedTeam} featuredPlayer={this.featuredPlayer}  handleDelete={this.props.handleDelete}/>  
             </div>
         )
     }

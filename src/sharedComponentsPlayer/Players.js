@@ -11,7 +11,7 @@ class Players extends React.Component{
             <div>
             
             {/*  */}
-            {this.props.playersArr.map(p =>  <Player player={p} key={p.id} featuredPlayer={this.props.featuredPlayer} />)}
+            {this.props.playersArr.map(p =>  <Player player={p} key={p.id} featuredPlayer={this.props.featuredPlayer} handleDelete={this.props.handleDelete}/>)}
             
             
             

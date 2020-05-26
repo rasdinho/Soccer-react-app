@@ -27,7 +27,10 @@ class Player extends React.Component{
             <div className="grid-item" >
                     <img src={this.props.player.img} alt="..." onClick={(event) => this.props.featuredPlayer(event, featureObj)}/>
                     <h3>{this.props.player.name}</h3>  
-                    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onClick={() => this.setState({favorite: !this.state.favorite})}> {this.state.favorite ? "Like" : "Unlike"}</button>             
+                    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off"
+                       onClick={() => this.setState({favorite: !this.state.favorite})}>{this.state.favorite ? "Liked" : "unliked"}</button>
+
+                       <button type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off" onClick={()=> this.props.handleDelete(this.props.player)}>Delete</button>           
              </div>
             
         {/* </div> */}

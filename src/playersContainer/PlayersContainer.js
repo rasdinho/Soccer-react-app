@@ -47,7 +47,7 @@ class PlayerContainer extends React.Component{
 
             <CreatePlayerForm  createPlayer={this.props.createPlayer}/>
 
-            <Players playersArr = {this.props.playersArr}/>
+            <Players playersArr = {this.props.playersArr} handleDelete={this.props.handleDelete}/>
             
             
             </div>
