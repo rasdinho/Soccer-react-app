@@ -36,3 +36,115 @@
     transform: rotate(360deg);
   }
 }
+
+/* ================================================ navbar ============================================== */
+.topnav{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.bottomnav{
+  float: left;
+}
+
+.bottomnav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.bottomnav a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+/* ===========================================create a player========================================= */
+
+.container-player{
+  /* display: inline; */
+  width: 400px; 
+  /* To adjust the height as well */ 
+  height: fit-content;
+  float: left;
+
+  background-image: url("https://www.pngarts.com/files/5/Footballer-Lionel-Messi-PNG-Download-Image.png");
+  opacity: 10px; 
+  background-size: cover;
+  background-position: center;
+  background-repeat:  no-repeat;
+  
+}
+.btn{
+  text-align: center;
+}
+
+
+.main{
+  height: fit-content;
+  width: fit-content; 
+  float: right;
+}
+.row{
+  text-align: right;
+}
+
+
+
+/* ========================================home =========================================== */
+
+.bg-text {
+  background-image: url("https://i.ya-webdesign.com/images/soccer-team-png-15.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  opacity: 0.5px;
+
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0, 0.4); 
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 200px;
+  text-align: center;
+}
+
+/* ====================================================================player card */
+
+.grid-container {
+  display: inline-grid;
+  grid-column-gap: 10px;
+  grid-template-columns: auto auto auto;
+  
+  padding: 40px;
+
+ grid-row-gap: 10px;
+}
+.grid-container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  /* border: 2px solid rgba(0, 0, 0, 0.8); */
+  border: 10px solid transparent;
+  padding: 20px;
+  font-size: 10px;
+  text-align: center;
+} 
+/* ==================================================================================== */
+
+
+
