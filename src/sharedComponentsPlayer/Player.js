@@ -3,6 +3,12 @@ import React from 'react'
 
 
 class Player extends React.Component{
+    constructor(){
+        super()
+        this.state={
+            favorite: false
+        }
+    }
 
 
 
@@ -20,7 +26,8 @@ class Player extends React.Component{
         {/* <div className="col-sm-6 col-md-4"> */}
             <div className="grid-item" >
                     <img src={this.props.player.img} alt="..." onClick={(event) => this.props.featuredPlayer(event, featureObj)}/>
-                    <h3>{this.props.player.name}</h3>                    
+                    <h3>{this.props.player.name}</h3>  
+                    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onClick={() => this.setState({favorite: !this.state.favorite})}> {this.state.favorite ? "Like" : "Unlike"}</button>             
              </div>
             
         {/* </div> */}

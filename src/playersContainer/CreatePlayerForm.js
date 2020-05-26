@@ -10,7 +10,7 @@ class CreatePlayerForm extends React.Component{
       age: 17,
       position: "GK",
       img: '',
-      team: 'Barcelona'
+      team_id: 1
 
 
     }
@@ -65,13 +65,13 @@ class CreatePlayerForm extends React.Component{
                <div class="form-group">
                   <label for="uname">Team:</label>
                                         
-                    <select className="form-control" id="sel1" value={this.state.team} name="team" onChange={this.handleForm}>
+                    <select className="form-control" id="sel1" value={this.state.team_id} name="team_id" onChange={this.handleForm}>
                         <option disabled selected value> -- select an option -- </option>
-                         <option>Barcelona</option>
-                         <option>Madrid</option>
-                         <option>Liverpool</option>
-                         <option>Manchester City</option>
-                         <option>Bayern</option>
+                         <option value={1}>Barcelona</option>
+                         <option value={2}>Madrid</option>
+                         <option value={3}>Liverpool</option>
+                         <option value={4}>Manchester City</option>
+                         <option value={5}>Bayern</option>
                         
                      </select>
                 </div>
