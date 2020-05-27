@@ -12,7 +12,7 @@ class SearchBar extends React.Component{
                 <span className="fa fa-search form-control-feedback"></span>
                 {/* <input type="text" class="form-control" placeholder="Search" onChange={this.props.handleOnChange}/> */}
 
-                <input type="text" class="form-control" placeholder="Search" value={this.props.input} onChange={(event)=> this.props.onSearch(event)}/>
+                <input type="text" class="form-control" placeholder="Search"  onChange={this.props.onSearch}/>
                 
                 </div>
             </div>

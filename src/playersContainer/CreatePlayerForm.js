@@ -27,7 +27,7 @@ class CreatePlayerForm extends React.Component{
       const playerObj = this.state
         return(
             <div class="container-player">
-            <h2>Create Player :</h2>
+            {/* <h2>Create Player :</h2> */}
             <form action="/action_page.php" class="was-validated" onSubmit={(event) => this.props.createPlayer(event, playerObj)}>
 {/* ================================================= */}
               <div class="form-group">

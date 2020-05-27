@@ -4,6 +4,8 @@ import FeaturedPlayer from './FeaturedPlayer'
 import Players from '../sharedComponentsPlayer/Players'
 
 
+
+
 class AllContainer extends React.Component{
 
     constructor(){
@@ -12,7 +14,9 @@ class AllContainer extends React.Component{
         this.state={      //intiale state
             allTeams: [],
             clickedTeam: [], //for each team we filtyer an array by clicking
-            featuredPlayer: null //this is for to feature player
+            featuredPlayer: null, //this is for to feature player
+
+            //searchTeam: ''
         }
     }
     componentDidMount(){ // constructor/render/componentDidMount are life cycle methods(coDidM will run after the render consolelog constructor didMoun render)
@@ -48,10 +52,11 @@ class AllContainer extends React.Component{
         this.setState({
             clickedTeam: team.players
         })
-
-
-    
     }
+// ========================================search team======================================================
+    
+
+// ==============================================================================================
 
     render(){
         //console.log("render")
@@ -65,7 +70,11 @@ class AllContainer extends React.Component{
                 <Teams teamsArr={this.state.allTeams} handleClickTeam={this.handleClickTeam}/>
 
                 {/* this is the array u updated at the handle method so u can pass it to players and map there */}
-                <Players playersArr ={this.state.clickedTeam} featuredPlayer={this.featuredPlayer}  handleDelete={this.props.handleDelete}/>  
+                <Players playersArr ={this.state.clickedTeam} featuredPlayer={this.featuredPlayer}  handleDelete={this.props.handleDelete} />  
+
+
+
+             
             </div>
         )
     }

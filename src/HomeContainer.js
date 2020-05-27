@@ -14,9 +14,9 @@ class HomeContainer extends React.Component{
             <div class="bg-image"></div>
             
             <div class="bg-text">
-                <h2>WE ARE SOCCER</h2>
-                <h1>I am Junior</h1>
-                <p>play</p>
+                <h2>WE TALK SOCCER</h2>
+                
+                <p>Let's Play</p>
             </div>
 
 </>

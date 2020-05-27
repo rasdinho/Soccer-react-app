@@ -9,7 +9,8 @@ class PlayerContainer extends React.Component{
         super()
         this.state={
             // searchInput: '',
-            // filteredArr: []
+            // filteredArr: [],
+            showForm: false
         }
     }
     //in order to keep the original we passed from the app shows on the website
@@ -38,14 +39,39 @@ class PlayerContainer extends React.Component{
     //     })
     // }
 //===================================================================================================================
+    handleClickForm = () => {
 
+        this.setState({
+            showForm: !this.state.showForm  // the oposite of the state
+        })
+    }
+
+
+
+//===================================================================================================================
     render(){
         return(
             <div><h1>players container</h1>
-            
+
             <SearchBar onSearch={this.props.onSearch} input={this.props.input}/>
 
-            <CreatePlayerForm  createPlayer={this.props.createPlayer}/>
+             <div>
+            <button onClick={this.handleClickForm}>{this.state.showForm ? "Hide Form" : "Create a Player"} 
+                
+            </button>
+
+                 {this.state.showForm ? <CreatePlayerForm  createPlayer={this.props.createPlayer}/>
+
+                 :
+
+                 null
+            
+            }
+             </div>
+            
+
+            {/* <CreatePlayerForm  createPlayer={this.props.createPlayer}/> */}
+
 
             <Players playersArr = {this.props.playersArr} handleDelete={this.props.handleDelete}/>
             

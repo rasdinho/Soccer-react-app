@@ -17,8 +17,8 @@ class App extends React.Component{
     super(props)
     this.state = {
       allPlayers: [],
-      searchPlayer: [],//filter all player by search bar 
-      searchInput: ''  //for this app search
+      searchInput: '',  //for this app search
+      //likeClick: false
     }
   }
 
@@ -37,18 +37,16 @@ class App extends React.Component{
   }
 // ========================================== search bar ========================================
 
-    onSearch = (event)=> {
+    onSearch =(event) => {
       this.setState({
         searchInput: event.target.value
       })
-      let target = this.state.searchInput //this line is to get the input we write in the search bar
-      let Players = this.state.allPlayers //this line is to get the players array form the state so we can use it
-          Players = Players.filter(p => p.name.toLowerCase().includes(target.toLowerCase())) // this line is to filter that array we used from the this.state and we put target inside so we can filter it by our value
-  
-      this.setState({ //after we do the logic we wanna change the dom by updating the state
-        searchPlayer: Players
-      })
-
+      this.filterSearch()
+    }
+    filterSearch = () => {
+      const playerArr = this.state.allPlayers
+      const player = playerArr.filter(p => p.name.toLowerCase().includes(this.state.searchInput.toLowerCase()))
+      return player
     }
 //==================================================create new player==========================================
 
@@ -102,8 +100,24 @@ class App extends React.Component{
     }
 
 // ========================================== == ========================================
+  // handleLike = (event, featureObj) => {
+
+    
+  //   const id = featureObj.id
+  //   //debugger
 
 
+  //   fetch(`http://localhost:3000/players/${id}`,{
+  //     method: 'PATCH',
+  //     headers: {"Content-Type":"application/json",
+  //       'Accept': 'application/json'
+  //     },
+  //     body: JSON.stringify({likeClick: !featureObj.liked})
+  //   })
+  //   .then(resp => resp.json())
+  //   .then(data => console.log(data))
+  // }
+// ====================================================================================
 
   render(){
     //console.log("render")
@@ -131,15 +145,15 @@ class App extends React.Component{
                
           </nav>
 {/* ================================================================= */}
-
+      
 {/* ===================================================================== */}
     {/* A <Switch> looks through its children <Route>s and
         renders the first one that matches the current URL. */}
         <Switch>
 
-          <Route exact path="/teams" render={() => <AllContainer handleDelete={this.handleDelete} />}/>
+          <Route exact path="/teams" render={() => <AllContainer handleDelete={this.handleDelete}/>}/>
       
-          <Route exact path="/players" render={() => <PlayersContainer playersArr = {this.state.searchPlayer} input={this.state.searchInput} onSearch={this.onSearch}  createPlayer={this.createPlayer}  handleDelete={this.handleDelete}/>}/>
+          <Route exact path="/players" render={() => <PlayersContainer playersArr = {this.filterSearch()} input={this.state.searchInput} onSearch={this.onSearch}  createPlayer={this.createPlayer}  handleDelete={this.handleDelete} />}/>
         
           <Route exact path="/home" component={HomeContainer}/>
         
